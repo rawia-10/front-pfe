@@ -2,7 +2,7 @@ import dotenv from  'dotenv'
 import React, { Component } from 'react';
 import { Button, Card, CardBody, CardFooter,CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
-// import image from './img/logo.png';
+import image from '../logo.png';
 import { ToastsContainer, ToastsStore } from 'react-toasts';
 import axios from 'axios';
 import JwtDecode from 'jwt-decode';
@@ -23,7 +23,8 @@ class LoginP extends Component {
       date_naissance:"",
       email:"",
       tel:"",
-      password:""
+      password:"",
+      
     };
 
     dotenv.config()
@@ -39,7 +40,7 @@ class LoginP extends Component {
     if (!token) {
         token = "";
     }
-    axios.post("http://127.0.0.1:8888/patient/register", {
+    axios.post("http://127.0.0.1:8000/patient/register", {
       nom:this.state.nom,
       prenom:this.state.prenom,
       genre:this.state.genre,
@@ -47,7 +48,8 @@ class LoginP extends Component {
       email:this.state.email,
       password:this.state.password,
       tel:this.state.tel,
-      date_naissance:this.state.date_naissance
+      date_naissance:this.state.date_naissance,
+     
 
     },
 
@@ -76,6 +78,7 @@ onchange= (event) => {
   this.setState({email: event.target.value});
   this.setState({date_naissance: event.target.value});
   this.setState({password: event.target.value});
+
 }
 
   render() { 
@@ -93,7 +96,7 @@ onchange= (event) => {
                 <div class="col">
                   <div class="header_top_content d-flex flex-row align-items-center justify-content-start">
                     <div class="logo">
-                    {/* <img  src={image} alt=""/> */}
+                     <img  src={image} alt=""/> 
                     </div>
                     <div class="header_top_extra d-flex flex-row align-items-center justify-content-start ml-auto">
                 
@@ -240,7 +243,7 @@ onchange= (event) => {
                   </InputGroupText>
                 </InputGroupAddon>
                     <Input   defaultValue={this.state.address} required
-                      onChange={evenement=>this.setState({address:evenement.target.value})} type="text" name="re_pass" id="re_pass" placeholder="Adresse" />
+                      onChange={evenement=>this.setState({address:evenement.target.value})} type="text" name="re_pass" id="re_pass" placeholder="address" />
                   </InputGroup>
                  
                   <InputGroup className="mb-3">
@@ -260,11 +263,6 @@ onchange= (event) => {
                     <i className="icon-user"></i>
                   </InputGroupText>
                 </InputGroupAddon>
-
-                {/* <Input type="radio" id="male" name="gender" defaultValue="male"  className="select-css"/>
-                   <label htmlFor="male">Male</label><br />
-                <Input type="radio" id="female" name="gender" defaultValue="female" />
-                    <label htmlFor="female">Female</label><br /> */}
                   <select className="select-css" name="select" id="select" required placeholder="Genre"  defaultValue={this.state.genre}
                     onChange={evenement=>this.setState({genre:evenement.target.value})}>
                     <option value={"0"}> Choisir votre genre </option>
@@ -273,8 +271,9 @@ onchange= (event) => {
                    </select>
                   </InputGroup>
 
+                 
 
-
+   
                   <div className="form-group">
                     <Input type="checkbox" name="agree-term" id="agree-term" className="agree-term"  required/>
                     <label htmlFor="agree-term" className="label-agree-term"><span><span /></span>I agree all statements in  <a href="#" className="term-service">Terms of service</a></label>
@@ -293,7 +292,7 @@ onchange= (event) => {
               
               </div>
               <div className="signup-image">
-                <figure><img src="images/signup-image.jpg" alt="sing up image" /></figure>
+                <figure><img src="images/signup-imagep.jpg" alt="sing up image" /></figure>
                 <Link to="loginpatient" className="signup-image-link">Je suis déjà membre</Link>
               </div>
             </div>

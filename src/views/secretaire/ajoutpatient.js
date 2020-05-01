@@ -28,6 +28,7 @@ import {
 } from 'reactstrap';
 import axios from 'axios';
 import { DateTime } from 'react-datetime-bootstrap';
+
 class Forms extends Component {
   constructor(props) {
     super(props);
@@ -66,7 +67,7 @@ class Forms extends Component {
     if (!token) {
         token = "";
     }
-    axios.post("http://127.0.0.1:8888/patient/register", {
+    axios.post("http://127.0.0.1:8000/patient/register", {
       nom:this.state.nom,
       prenom:this.state.prenom,
       genre:this.state.genre,

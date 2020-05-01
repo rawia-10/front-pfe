@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
+import axios from 'axios'
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import image from './images/logo.png'
 import image1 from "./images/info_1.jpg"
@@ -21,7 +23,13 @@ import image16 from "./images/doc_5.jpg"
 
 
 class Login extends Component {
+
+
+
+  
   render() {
+ 
+
     return (
      <div>
   
@@ -170,7 +178,9 @@ class Login extends Component {
                             </select>
                           </div>
                           <div className="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                            <button type="submit" href="rendez-vous.html" className="btn btn-primary btn-lg btn-block text-white btn-search"><span className="icon-search icon mr-2" />Rechercher</button>
+                          <Link to="medecin">
+                        <button type="submit" href="rendez-vous.html" className="btn btn-primary btn-lg btn-block text-white btn-search"><span className="icon-search icon mr-2" />Rechercher</button>
+                        </Link>
                           </div>
                         </div>
                         <div className="row">
@@ -230,7 +240,15 @@ Ne renoncez pas à vous soigner.</span></div>
 							<div class="info_title">Vous êtes un patient</div>
 							<div><span>prenez rendez-vous en ligne pour une consultation vidéo ou au cabinet.
 Ne renoncez pas à vous soigner.</span></div>
+              
+
+               {/* <Link to={`/patient${item.Id}`}>
+                        <div name="col-xs-4 col-md-3 d-flex justify-content-end">
+                            <i className="fa fa-info-circle t-green fa-lg" onClick={this.getPatient}></i>
+                        </div>
+                     </Link> */}
 						</div>
+             
 					</div>
 				</div>
 
@@ -252,97 +270,42 @@ Ne renoncez pas à vous soigner.</span></div>
 
 
 
-<footer className="footer">
-  <div className="parallax_background parallax-window k" data-parallax="scroll" data-speed="0.8" />
-  <div className="footer_content">
-    <div className="container">
-      <div className="row">
-        <div className="col-lg-3 footer_col">
-          <div className="footer_about">
-            <div className="logo">
-              <a href="#">Medium<span /></a>
+  <footer>
+        <div className="footer" id="footer">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <h4> Brand Name </h4>
+              </div>
+              <div className="col-lg-3 col-sm-2 col-xs-3">
+                <h3> Contact </h3>
+                <ul>
+                  <li><a className="email" href="#"> insert email here </a></li>
+                  <br />
+                  <li> <p> address line one </p> </li>
+                  <li> <p> address line two </p> </li>
+                </ul>
+              </div>
+              <div className="col-lg-3 col-sm-2 col-xs-3">
+                <ul>
+                  <li> <h5> <a href="#" style={{marginTop: '5em'}}> ABOUT US</a> </h5><h5 /></li>
+                  <li> <h5><a href="#"> CURRENT SERIES </a> </h5><h5 /></li>
+                  <li> <h5><a href="#"> THE HOUSE </a> </h5><h5 /></li>
+                  <li> <h5><a href="#"> LOOKING BACK </a> </h5><h5 /></li>
+                </ul>
+              </div>
+              {/*/.row*/} 
             </div>
-            <div className="footer_about_text">Lorem ipsum dolor sit amet, lorem maximus consectetur adipiscing elit. Donec malesuada lorem maximus mauris.</div>
-            <div className="footer_social">
-              <ul className="d-flex flex-row align-items-center justify-content-start">
-                <li><a href="#"><i className="fa fa-pinterest" aria-hidden="true" /></a></li>
-                <li><a href="#"><i className="fa fa-facebook" aria-hidden="true" /></a></li>
-                <li><a href="#"><i className="fa fa-twitter" aria-hidden="true" /></a></li>
-                <li><a href="#"><i className="fa fa-dribbble" aria-hidden="true" /></a></li>
-                <li><a href="#"><i className="fa fa-behance" aria-hidden="true" /></a></li>
-                <li><a href="#"><i className="fa fa-linkedin" aria-hidden="true" /></a></li>
-              </ul>
-            </div>
-            <div className="copyright">
-              Copyright © All rights reserved | This template is made with
-              <i className="fa fa-heart-o" aria-hidden="true" /> by
-              <a href="" target="_blank">Rawia Ajili</a>
+            {/*/.container*/} 
+          </div>
+          {/*/.footer*/}
+          <div className="footer-bottom">
+            <div className="container">
+              <p className="pull-left copyright"> Copyright © Footer 2014. All right reserved. </p>
             </div>
           </div>
-        </div>
-        <div   id="contacter" className="col-lg-5 footer_col">
-          <div className="footer_contact">
-            <div className="footer_contact_title">Contact</div>
-            <div className="footer_contact_form_container">
-           
-              <form  action="#" className="footer_contact_form" id="footer_contact_form">
-                <div className="d-flex flex-xl-row flex-column align-items-center justify-content-between">
-                  <input type="text" className="footer_contact_input" placeholder="Name" required="required" />
-                  <input type="email" className="footer_contact_input" placeholder="E-mail" required="required" />
-                </div>
-                <textarea className="footer_contact_input footer_contact_textarea" placeholder="Message" required="required" defaultValue={""} />
-                <button className="footer_contact_button">send message</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      
-        <div className="col-lg-4 footer_col">
-          <div className="footer_hours">
-            <div className="footer_hours_title">Opening Hours</div>
-            <ul className="hours_list" >
-            <li className="active"><a href="#ind">Accueil</a></li>
-                <li><a href="about.html">A Propos</a></li>
-                <li><a href="services.html">Services</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  {/* <div className="footer_bar">
-    <div className="container">
-      <div className="row">
-        <div className="col">
-          <div className="footer_bar_content d-flex flex-sm-row flex-column align-items-lg-center align-items-start justify-content-start">
-            <nav className="footer_nav">
-              <ul className="d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
-                <li className="active"><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="contact.html">Contact</a></li>
-              </ul>
-            </nav>
-            <div className="footer_links">
-              <ul className="d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
-                <li><a href="#">Help Desk</a></li>
-                <li><a href="#">Emergency Services</a></li>
-                <li><a href="#">Appointment</a></li>
-              </ul>
-            </div>
-            <div className="footer_phone ml-lg-auto">
-              <i className="fa fa-phone" aria-hidden="true" />
-              <span>+34 586 778 8892</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> */}
-
-</footer>
-
+          {/*/.footer-bottom*/} 
+        </div></footer>
 
   </div>
   

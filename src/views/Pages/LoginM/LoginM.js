@@ -6,7 +6,7 @@ import dotenv from  'dotenv'
 import React, { Component } from 'react';
 import { Button, Card, CardBody, CardFooter,CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
-// import image from './img/logo.png';
+import image from '../logo.png';
 import { ToastsContainer, ToastsStore } from 'react-toasts';
 import axios from 'axios';
 import JwtDecode from 'jwt-decode';
@@ -83,7 +83,7 @@ class LoginM extends Component {
     // }
     //  else {
       axios
-        .post('http://127.0.0.1:8888/medecin/login', {
+        .post('http://127.0.0.1:8000/medecin/login', {
           email: this.state.email,
           password: this.state.password,
         })
@@ -139,7 +139,7 @@ class LoginM extends Component {
                 <div class="col">
                   <div class="header_top_content d-flex flex-row align-items-center justify-content-start">
                     <div class="logo">
-                    {/* <img  src={image} alt=""/> */}
+                    <img  src={image} alt=""/>
                     </div>
                     <div class="header_top_extra d-flex flex-row align-items-center justify-content-start ml-auto">
 
@@ -218,7 +218,7 @@ class LoginM extends Component {
           <div className="containere">
             <div className="signin-content ">
               <div className="signin-image col-lg-5">
-                <figure><img src="images/signin-image.jpg" alt="sing up image" /></figure>
+                <figure><img src="images/signin-imagem.jpg" alt="sing up image" /></figure>
 
               </div>
               <div className="col-lg-4">

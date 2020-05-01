@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux'
 
-import psyReducer from './psyReducer'
+import medecinReducer from './medecinReducer'
 import patientReducer from './patientReducer'
 import rdvReducer from './rdvReducer'
 import secretaireReducer from './secretaireReducer'
 
-export default combineReducers({patientReducer,psyReducer,rdvReducer,secretaireReducer})
+export default combineReducers({patientReducer,medecinReducer,rdvReducer,secretaireReducer})

@@ -62,7 +62,7 @@ handleFirstClick(event) {
           if (!token) {
               token = "";
           }
-          axios.get("http://127.0.0.1:8888/patient/list",
+          axios.get("http://127.0.0.1:8000/patient/list",
 
               {
                   headers: {
@@ -117,7 +117,7 @@ handleClickDelete(e,id){
 
 
       <section>
-       <div className='contact-list-container'>
+       {/* <div className='contact-list-container'>
 
           <div className="animated fadeIn">
               <Row>
@@ -160,6 +160,7 @@ handleClickDelete(e,id){
               </Row>
           </div>
       </div>
+ */}
 
 
 
@@ -167,8 +168,7 @@ handleClickDelete(e,id){
 
 
 
-
-      {/*<Row>
+      <Row>
  <Col>
    <Card>
      <CardHeader>
@@ -202,7 +202,7 @@ handleClickDelete(e,id){
      </CardBody>
    </Card>
  </Col>
-</Row>*/}
+</Row>
 
   </section>
 

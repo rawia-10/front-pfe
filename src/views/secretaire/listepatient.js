@@ -62,7 +62,7 @@ handleFirstClick(event) {
           if (!token) {
               token = "";
           }
-          axios.get("http://127.0.0.1:8888/patient/list",
+          axios.get("http://127.0.0.1:8000/patient/list",
 
               {
                   headers: {
@@ -80,29 +80,9 @@ handleFirstClick(event) {
         }
 
 
-handleClickDelete(e,id){
-            e.preventDefault();
-            console.log("id",id);
-            this.remove(id);
-                     }
 
 
 
-
-// remove(id)
-//             {
-//               fetch("http://localhost:3017/patient/delete/"+id,{method:"DELETE"})
-//               .then(response=>response.json())
-//               .then(data=>{
-//                   console.log("remove",data) ;
-//                   this.getall();
-//             }  )
-//             }
-
-            // onchange= (event) => {
-            //     this.setState({nom: event.target.value});
-            //     this.setState({prenom: event.target.value});
-            //   }
 
             handlechange=(e)=>{
               this.setState({keyword:e.target.value})
@@ -117,58 +97,8 @@ handleClickDelete(e,id){
 
 
       <section>
-       <div className='contact-list-container'>
 
-          <div className="animated fadeIn">
-              <Row>
-                  <Col xs="12" sm="12" md="12">
-                      <Card>
-                          <CardBody>
-                              <h1 className="h1 text-center text-success font-weight-bold">List Patient</h1>
-                              <hr></hr>
-                              <div class="wrap">
-                  <div class="search">
-                      <input type="text" class="searchTerm" placeholder="What are you looking for?" onChange={this.handlechange}/>
-                      <button type="submit" class="searchButton">
-                          <i class="fa fa-search"></i>
-                      </button>
-                  </div>
-                  </div>
-                              <div className="table-responsive py-3">
-                                  <table className="table">
-                                      <thead>
-                                          <tr className="bg-blue">
-                                          <th>nom</th>
-                                           <th>prenom</th>
-                                          <th>adresse</th>
-                                          <th>Telephone</th>
-                                          <th>genre</th>
-                                          <th>date naissance</th>
-                                          <th>Action</th>
-                                          </tr>
-                                      </thead>
-                                      <tbody>
-                                      {patients.filter(el => el.nom.toUpperCase().includes(this.state.keyword.toUpperCase().trim())).map((el, index) => <ItemPatient key={index} item={el} />)}
-
-                                      </tbody>
-                                  </table>
-
-                              </div>
-                          </CardBody>
-                      </Card>
-                  </Col>
-              </Row>
-          </div>
-      </div>
-
-
-
-
-
-
-
-
-      {/*<Row>
+      <Row>
  <Col>
    <Card>
      <CardHeader>
@@ -202,7 +132,7 @@ handleClickDelete(e,id){
      </CardBody>
    </Card>
  </Col>
-</Row>*/}
+</Row>
 
   </section>
 

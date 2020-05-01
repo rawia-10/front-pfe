@@ -27,7 +27,7 @@ class ItemRDV extends Component {
 
 //     deletepatient = () => {
 //       const { item } = this.props
-//       axios.delete(`http://127.0.0.1:7770/patient/delete/${item.Id}`)
+//       axios.delete(`http://127.0.0.1:8000/patient/delete/${item.Id}`)
 //           .then(() => this.props.deletePatientReducer(item.Id))
 //           .catch((err) => alert(err))
 //   }

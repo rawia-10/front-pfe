@@ -23,6 +23,7 @@ class PatientInfobyS extends Component {
             email:"",
             tel:"",
             password:"",
+            remarque:"",
             CreatedAt: "",
             UpdatedAt: ""
         };
@@ -30,7 +31,7 @@ class PatientInfobyS extends Component {
 
     getPatient = () => {
 
-      axios.get(`http://127.0.0.1:8888/patient/get/${this.props.match.params.id}`,
+      axios.get(`http://127.0.0.1:8000/patient/get/${this.props.match.params.id}`,
           {
               headers: {
                   Authorization: 'Bearer ' + localStorage.getItem("token")
@@ -47,6 +48,7 @@ class PatientInfobyS extends Component {
                   tel: u.data.data.data.tel,
                   genre: u.data.data.data.genre,
                   date_naissance: u.data.data.data.date_naissance,
+                  remarque: u.data.data.data.remarque,
                   CreatedAt: u.data.data.data.CreatedAt,
                   UpdatedAt: u.data.data.data.UpdatedAt
               });
@@ -98,8 +100,13 @@ class PatientInfobyS extends Component {
                                                         <td>{this.state.genre}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td className="font-weight-bold">date_naissance</td>
+                                                        <td className="font-weight-bold">date naissance</td>
                                                         <td>{this.state.date_naissance}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td className="font-weight-bold">Remarque</td>
+                                                        <td>{this.state.remarque}</td>
                                                     </tr>
 
                                                     <tr>
@@ -115,7 +122,7 @@ class PatientInfobyS extends Component {
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                                <Link   to='/home/listepatients'>
+                                                <Link   to='/home/listepatient'>
                                                     <div className=" d-flex justify-content-start pl-5 ">
                                                         <button type="button" name="" id="" className="btn btn-danger listinfo font-weight-bold w-25 btn-lg ">
                                                             <i className="fa fa-refresh pr-3 "></i> <span >List</span></button>

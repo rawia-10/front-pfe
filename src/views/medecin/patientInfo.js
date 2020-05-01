@@ -22,6 +22,7 @@ class PatientInfobyS extends Component {
             date_naissance:"",
             email:"",
             tel:"",
+            remarque:"",
             password:"",
             CreatedAt: "",
             UpdatedAt: ""
@@ -30,7 +31,7 @@ class PatientInfobyS extends Component {
 
     getPatient = () => {
 
-      axios.get(`http://127.0.0.1:8888/patient/get/${this.props.match.params.id}`,
+      axios.get(`http://127.0.0.1:8000/patient/get/${this.props.match.params.id}`,
           {
               headers: {
                   Authorization: 'Bearer ' + localStorage.getItem("token")
@@ -47,6 +48,7 @@ class PatientInfobyS extends Component {
                   tel: u.data.data.data.tel,
                   genre: u.data.data.data.genre,
                   date_naissance: u.data.data.data.date_naissance,
+                  remarque: u.data.data.data.remarque,
                   CreatedAt: u.data.data.data.CreatedAt,
                   UpdatedAt: u.data.data.data.UpdatedAt
               });
@@ -100,6 +102,11 @@ class PatientInfobyS extends Component {
                                                     <tr>
                                                         <td className="font-weight-bold">date_naissance</td>
                                                         <td>{this.state.date_naissance}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td className="font-weight-bold">Remarque</td>
+                                                        <td>{this.state.remarque}</td>
                                                     </tr>
 
                                                     <tr>

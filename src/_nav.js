@@ -14,7 +14,7 @@ export default {
       children: [
         {
           name: 'Liste patient ',
-          url: '/home/listepatients',
+          url: '/home/listepatient',
           icon: 'icon-cursor',
         },
         {

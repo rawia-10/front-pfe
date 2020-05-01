@@ -4,7 +4,7 @@ import { Badge, Card,Form, CardBody,Button, CardHeader, Col, Pagination, Paginat
 from 'reactstrap';
 import { connect } from 'react-redux'
 import axios from 'axios'
-import ItemRdv from './itemRDV'
+import ItemRDV from './itemRDV'
 import './List.css'
 let prev  = 0;
 let next  = 0;
@@ -62,14 +62,14 @@ handleFirstClick(event) {
           if (!token) {
               token = "";
           }
-          axios.get("http://127.0.0.1:7770/rdv/list",
+          axios.get("http://127.0.0.1:8000/rdv/list",
 
               {
                   headers: {
                       Authorization: 'Bearer ' + token
                   }
               }).then((res) => {
-                  this.props.updaterendezvousReducer(res.data.data.data);
+                  this.props.updatRDVReducer(res.data.data.data);
               }).catch(e => {
                   if (e.status === 401) {
                       this.props.history.push("login");
@@ -89,15 +89,7 @@ handleClickDelete(e,id){
 
 
 
-// remove(id)
-//             {
-//               fetch("http://localhost:3017/rendezvous/delete/"+id,{method:"DELETE"})
-//               .then(response=>response.json())
-//               .then(data=>{
-//                   console.log("remove",data) ;
-//                   this.getall();
-//             }  )
-//             }
+
 
             // onchange= (event) => {
             //     this.setState({nom: event.target.value});
@@ -117,14 +109,14 @@ handleClickDelete(e,id){
 
 
       <section>
-      <div className='contact-list-container'>
+      {/* <div className='contact-list-container'>
 
           <div className="animated fadeIn">
               <Row>
                   <Col xs="12" sm="12" md="12">
                       <Card>
                           <CardBody>
-                              <h1 className="h1 text-center text-success font-weight-bold">List rendezvous</h1>
+                              <h1 className="h1 text-center text-success font-weight-bold">List RDV</h1>
                               <hr></hr>
                               <div class="wrap">
                   <div class="search">
@@ -140,15 +132,15 @@ handleClickDelete(e,id){
                                           <tr className="bg-blue">
                                           <th>nom</th>
                                            <th>prenom</th>
-                                          <th>email</th>
+                                          <th>adresse</th>
                                           <th>Telephone</th>
-                                          <th>heure</th>
-                                          <th>date </th>
+                                          <th>genre</th>
+                                          <th>date naissance</th>
                                           <th>Action</th>
                                           </tr>
                                       </thead>
                                       <tbody>
-                                      {rdvs.filter(el => el.date.toUpperCase().includes(this.state.keyword.toUpperCase().trim())).map((el, index) => <ItemRdv key={index} item={el} />)}
+                                      {rdvs.filter(el => el.nom.toUpperCase().includes(this.state.keyword.toUpperCase().trim())).map((el, index) => <ItemRDV key={index} item={el} />)}
 
                                       </tbody>
                                   </table>
@@ -159,8 +151,43 @@ handleClickDelete(e,id){
                   </Col>
               </Row>
           </div>
-      </div>
-
+      </div> */}
+<Row>
+ <Col>
+   <Card>
+     <CardHeader>
+       <i className="icon-list"></i> Liste des patients
+     </CardHeader>
+     <CardBody>
+     <div class="search">
+                      <input type="text" class="searchTerm" placeholder="Que cherchez-vous?" onChange={this.handlechange}/>
+                      <button type="submit" class="searchButton">
+                          <i class="fa fa-search"></i>
+                      </button>
+                  </div>
+       <Table hover bordered striped responsive size="xl">
+         <thead>
+         <tr>
+         <th>nom</th>
+             <th>prenom</th>
+            <th>email</th>
+             <th>Telephone</th>
+            <th>date </th>
+            <th>heure</th>
+            <th>Action</th>
+         </tr>
+         </thead>
+       
+         <tbody>
+         {rdvs.filter(el => el.nom.toUpperCase().includes(this.state.keyword.toUpperCase().trim())).map((el, index) => <ItemRDV key={index} item={el} />)}
+         </tbody>
+       </Table>
+    
+     </CardBody>
+   </Card>
+ </Col>
+</Row>
+  
   </section>
 
 
@@ -172,16 +199,16 @@ handleClickDelete(e,id){
 
 const mapStateToProps = (state) => {
   return {
-      rdvs: state.rendezvousReducer
+      rdvs: state.rdvReducer
   }
 }
 
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      updaterendezvousReducer: rdvs => {
+      updatRDVReducer: rdvs => {
           dispatch({
-              type: 'UPDATE_rendezvous',
+              type: 'UPDATE_RVD',
               rdvs
           })
       }

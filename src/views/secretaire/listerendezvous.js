@@ -62,7 +62,7 @@ handleFirstClick(event) {
           if (!token) {
               token = "";
           }
-          axios.get("http://127.0.0.1:8888/rdv/list",
+          axios.get("http://127.0.0.1:8000/rdv/list",
 
               {
                   headers: {

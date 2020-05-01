@@ -14,7 +14,7 @@ export default {
       children: [
         {
           name: 'Liste patient ',
-          url: '/home/listepatient',
+          url: '/home/listepatients',
           icon: 'icon-cursor',
         },
         ,
@@ -30,7 +30,7 @@ export default {
       children: [
         {
           name: 'Liste rendezvous ',
-          url: '/home/listerendezvous',
+          url: '/home/listerendezvouss',
           icon: 'icon-cursor',
         },
 

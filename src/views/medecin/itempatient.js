@@ -28,7 +28,7 @@ class ItemPatient extends Component {
 
     deletepatient = () => {
       const { item } = this.props
-      axios.delete(`http://127.0.0.1:8888/patient/delete/${item.Id}`)
+      axios.delete(`http://127.0.0.1:8000/patient/delete/${item.Id}`)
           .then(() => this.props.deletePatientReducer(item.Id))
           .catch((err) => alert(err))
   }
@@ -66,14 +66,14 @@ class ItemPatient extends Component {
                         <div name="col-xs-4 col-md-3 d-flex justify-content-end">
                             <i className="fa fa-info-circle t-green fa-lg" onClick={this.getPatient}></i>
                         </div>
-                        </Link>
-                        {/* <div className="col-xs-4 col-md-3 d-flex justify-content-center">
-                            <i className="fa fa-lock t-blue fa-lg" ></i>
-                        </div> */}
+                     </Link>
+
+
                         <div className="col-xs-4 col-md-3 d-flex justify-content-center">
                             <i className="fa fa-trash t-red fa-lg" onClick={this.deletepatient} ></i>
                         </div>
-                        <Link to={`/psy/update/${item.Id}`}>
+
+                        <Link to={`/medecin/update/${item.Id}`}>
                         <div className="col-xs-4 col-md-3 d-flex  justify-content-start">
                             <i className="fa fa-edit t-green fa-lg"></i>
                         </div>

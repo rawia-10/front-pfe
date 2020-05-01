@@ -7,8 +7,10 @@ import Page500 from './Page500';
 import Register from './Register';
 import RegisterM from './RegisterM';
 import RegisterP from './RegisterP';
+import Patient from './Patient'
+import Medecin from './medecin'
 
 
 export {
-  Login, Page404, Page500, Register,LoginS,LoginM,LoginP,RegisterM,RegisterP
+  Login, Page404, Page500, Register,LoginS,LoginM,LoginP,RegisterM,RegisterP,Patient,Medecin
 };

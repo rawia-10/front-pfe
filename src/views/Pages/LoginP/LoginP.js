@@ -6,7 +6,7 @@ import dotenv from  'dotenv'
 import React, { Component } from 'react';
 import { Button, Card, CardBody, CardFooter,CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
-// import image from './img/logo.png';
+import image from '../logo.png';
 import { ToastsContainer, ToastsStore } from 'react-toasts';
 import axios from 'axios';
 import JwtDecode from 'jwt-decode';
@@ -83,7 +83,7 @@ class LoginP extends Component {
     // }
     //  else {
       axios
-        .post('http://127.0.0.1:8888/patient/login', {
+        .post('http://127.0.0.1:8000/patient/login', {
           email: this.state.email,
           password: this.state.password,
         })
@@ -94,7 +94,7 @@ class LoginP extends Component {
             var payload = JwtDecode(success.data.data.data);
             if (payload.role) {
               if (payload.role === 'PATIENT') {
-                this.props.history.push('registerP');
+                this.props.history.push('Patient');
               }
             } else {
               localStorage.removeItem('token');
@@ -105,7 +105,7 @@ class LoginP extends Component {
         })
         .catch(error => {
           console.log(error)
-      ToastsStore.error(error.data.error);
+     // ToastsStore.error(error.data.error);
         });
 
   }
@@ -139,7 +139,7 @@ class LoginP extends Component {
                 <div class="col">
                   <div class="header_top_content d-flex flex-row align-items-center justify-content-start">
                     <div class="logo">
-                    {/* <img  src={image} alt=""/> */}
+                    <img  src={image} alt=""/> 
                     </div>
                     <div class="header_top_extra d-flex flex-row align-items-center justify-content-start ml-auto">
 
@@ -218,7 +218,7 @@ class LoginP extends Component {
           <div className="containere">
             <div className="signin-content ">
               <div className="signin-image col-lg-5">
-                <figure><img src="images/signin-image.jpg" alt="sing up image" /></figure>
+                <figure><img src="images/signin-imagep.jpg" alt="sing up image" /></figure>
 
               </div>
               <div className="col-lg-4">
@@ -287,7 +287,7 @@ class LoginP extends Component {
 
                 </Row>
 
-                <Link to="registerM" className="fr">
+                <Link to="registerP" className="fr">
                 <span className="d-flex align-item-center justify-content-center p-4 notreg "> Create An Account</span>
 
                 </Link>

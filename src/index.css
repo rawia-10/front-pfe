@@ -317,7 +317,7 @@ body, div {
  flex-wrap: wrap;
 }
 .patient{
- background-color: #f44336 !important;
+ background-color: #E72179 !important;
  padding: 10px 50px  !important;
  font-size: 15px !important;
  border-radius: 20px !important;
@@ -1362,6 +1362,8 @@ sidebar {
  display: flex;
  align-items: center;
  justify-content: center;
+ max-width: 50%;
+  
 }
 .copyright {
  text-align: center;

@@ -42,12 +42,14 @@ const ajoutrendezvous = React.lazy(() => import('./views/secretaire/ajoutrendezv
 const listerendezvous = React.lazy(() => import('./views/secretaire/listerendezvous'));
 const LoginS =React.lazy(() => import('./views/Pages/LoginS/LoginS'));
 const PatientInfobyS = React.lazy(() => import('./views/secretaire/patientInfobyS'));
+const updateP = React.lazy(() => import('./views/secretaire/UpdatePatient'));
 //médecin
 const listRDV = React.lazy(() => import('./views/medecin/rdv'));
 const listeP = React.lazy(() => import('./views/medecin/patient'));
 const LoginM =React.lazy(() => import('./views/Pages/LoginM/LoginM'));
 const PatientInfo = React.lazy(() => import('./views/medecin/patientInfo'));
-
+const remarqueP = React.lazy(() => import('./views/medecin/remarque'));
+const updatePa = React.lazy(() => import('./views/medecin/UpdatePatient'));
 
 //admin
 const listeS = React.lazy(() => import('./views/admin/secretaire'));
@@ -103,12 +105,13 @@ const routes = [
   { path: '/home/ajoutrendezvous', exact: true, name: 'ajout rendezvous', component: ajoutrendezvous },
   { path: '/home/listerendezvous', exact: true, name: 'liste rendezvous', component: listerendezvous },
   { path: '/secretaire/info/:id', exact: true, name: 'Patient info', component: PatientInfobyS },
+  { path: '/secretaire/update/:id', exact: true, name: 'Patient info', component: updateP },
   //medecin
    { path: '/home/listepatients', exact: true, name: 'listepatient', component: listeP },
    { path: '/home/listerendezvouss', exact: true, name: 'liste rendezvous', component: listRDV },
    { path: '/medecin/info/:id', exact: true, name: 'Patient info', component: PatientInfo },
-
-
+   { path: '/medecin/remarque/:id', exact: true, name: 'Patient info', component: remarqueP },
+   { path: '/medecin/update/:id', exact: true, name: 'Patient info', component: updatePa },
   //admin
   { path: '/home/secretaire', exact: true, name: 'liste secretaire', component: listeS },
   { path: '/home/medecin', exact: true, name: 'liste medecin', component: listeM},
